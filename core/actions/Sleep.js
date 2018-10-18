@@ -1,9 +1,9 @@
 const status = require('../status');
 
 class Sleep {
-  updateState(state) {
-    state.timeInStatus = 0;
-    state.status = status.Sleeping;
+  updateState(pet) {
+    pet.state.timeInStatus = 0;
+    pet.state.status = status.Sleeping;
   }
 }
 

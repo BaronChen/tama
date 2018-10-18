@@ -1,7 +1,7 @@
 class Poop {
-  updateState(state) {
-    state.satiety = 0;
-    state.hasPoop = true;
+  updateState(pet) {
+    pet.state.satiety = 0;
+    pet.state.hasPoop = true;
   }
 }
 

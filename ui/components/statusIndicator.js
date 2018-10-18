@@ -1,6 +1,6 @@
 const contrib = require('blessed-contrib');
-const status = require('../core/status');
-const grid = require('./grid');
+const status = require('../../core/status');
+const grid = require('../grid');
 
 const sleepLabel = 'Time to awake...';
 const awakeLabel = 'Time to sleep...';

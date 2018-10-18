@@ -24,7 +24,7 @@ class Pet {
   }
 
   performAction(action) {
-    action.mutateState(this);
+    action.updateState(this);
   }
 
   

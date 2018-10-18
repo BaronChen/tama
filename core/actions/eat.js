@@ -1,6 +1,6 @@
 class Eat {
-  updateState(state) {
-    state.satiety += 25; 
+  updateState(pet) {
+    pet.state.satiety += 25; 
   }
 }
 

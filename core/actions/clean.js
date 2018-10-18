@@ -1,6 +1,6 @@
 class Clean {
-  updateState(state) {
-    state.hasPoop = false;
+  updateState(pet) {
+    pet.state.hasPoop = false;
   }
 }
 
