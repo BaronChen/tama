@@ -5,8 +5,8 @@ class Pet {
     this.state = this.getInitialState();
     this.configValues = {
       maxTimeInStatus: 100,
-      maxsatiety: 100,
-      maxhealthPoint: 100,
+      maxSatiety: 100,
+      maxHealthPoint: 100,
       maxHappiness: 100
     };
   }
@@ -27,8 +27,9 @@ class Pet {
     action.updateState(this);
   }
 
-  
-
+  receiveCommand(command) {
+    command.execute(this);
+  }
 }
 
 module.exports = Pet;

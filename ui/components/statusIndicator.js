@@ -5,7 +5,7 @@ const grid = require('../grid');
 const sleepLabel = 'Time to awake...';
 const awakeLabel = 'Time to sleep...';
 
-const gauge = grid.set(0, 0, 2, 4, contrib.gauge, {label: awakeLabel, stroke: 'green', fill: 'white', percent: 0});
+const gauge = grid.set(0, 0, 2, 4, contrib.gauge, {label: awakeLabel, stroke: 'green', fill: 'white', percent: 0, showLabel: false});
 
 const updateGaugeData = (pet) => () => {
   gauge.setData(pet.state.timeInStatus/pet.configValues.maxTimeInStatus); 
@@ -21,11 +21,11 @@ const updateGaugeData = (pet) => () => {
   }
 };
 
-const setUpStatusIndicator = (pet) => {
+const setUp = (pet) => {
   updateGaugeData(pet)();
   setInterval(updateGaugeData(pet), 1000);
 };
 
 module.exports = {
-  setUpStatusIndicator
+  setUp
 };

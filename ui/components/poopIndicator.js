@@ -3,7 +3,7 @@ const status = require('../../core/status');
 const grid = require('../grid');
 
 const cleanLabel = "CLEAN";
-const poopLabel = "POOP!";
+const poopLabel = "POOP";
 
 const options = { segmentWidth: 0.06 // how wide are the segments in % so 50% = 0.5
   , segmentInterval: 0.11 // spacing between the segments in % so 50% = 0.550% = 0.5
@@ -24,11 +24,11 @@ const updateLcdData = (pet) => () => {
   });
 };
 
-const setUpPoopIndicator = (pet) => {
+const setUp = (pet) => {
   updateLcdData(pet)();
   setInterval(updateLcdData(pet), 100);
 };
 
 module.exports = {
-  setUpPoopIndicator
+  setUp
 };

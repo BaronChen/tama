@@ -5,14 +5,14 @@ const grid = require('../grid');
 const gauge = grid.set(0, 4, 2, 4, contrib.gauge, {label: 'Health Point', stroke: 'red', fill: 'white', percent: 0, showLabel: true});
 
 const updateGaugeData = (pet) => () => {
-  gauge.setData(pet.state.healthPoint/pet.configValues.maxhealthPoint);
+  gauge.setData(pet.state.healthPoint/pet.configValues.maxHealthPoint);
 };
 
-const setUpHealthPointIndicator = (pet) => {
+const setUp = (pet) => {
   updateGaugeData(pet)();
-  setInterval(updateGaugeData(pet), 1000);
+  setInterval(updateGaugeData(pet), 100);
 };
 
 module.exports = {
-  setUpHealthPointIndicator
+  setUp
 };
