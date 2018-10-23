@@ -1,86 +1,17 @@
-const blessed = require('blessed')
-const grid = require('../grid')
+const contrib = require('blessed-contrib')
+const grid = require('../grid');
 const Feed = require('../../core/commands/feed')
-const form = grid.set(6, 0, 6, 2, blessed.form, { content: 'Commands'})
+const CleanPoop = require('../../core/commands/cleanPoop')
+const screen = require("../screen");
+grid.set(6, 0, 6, 2, contrib.markdown, {label:"Commands", markdown: "Feed(ctrl+f)\nClean(ctrl+c)\nBedding(ctrl+b)\nQuit(q)"})
 
-const feedButton = blessed.button({
-  parent: form,
-  mouse: true,
-  keys: true,
-  shrink: true,
-  padding: {
-    left: 1,
-    right: 1
-  },
-  left: 1,
-  top: 2,
-  shrink: true,
-  name: 'feed',
-  content: 'Feed',
-  style: {
-    bg: 'blue',
-    focus: {
-      bg: 'red'
-    },
-    hover: {
-      bg: 'red'
-    }
-  }
-});
-
-const cleanButton = blessed.button({
-  parent: form,
-  mouse: true,
-  keys: true,
-  shrink: true,
-  padding: {
-    left: 1,
-    right: 1
-  },
-  left: 1,
-  top: 4,
-  shrink: true,
-  name: 'Clean',
-  content: 'Clean',
-  style: {
-    bg: 'cyan',
-    focus: {
-      bg: 'red'
-    },
-    hover: {
-      bg: 'red'
-    }
-  }
-});
-
-const putToBedButton = blessed.button({
-  parent: form,
-  mouse: true,
-  keys: true,
-  shrink: true,
-  padding: {
-    left: 1,
-    right: 1
-  },
-  left: 1,
-  top: 6,
-  shrink: true,
-  name: 'Put To Bed',
-  content: 'Put To Bed',
-  style: {
-    bg: 'magenta',
-    focus: {
-      bg: 'red'
-    },
-    hover: {
-      bg: 'red'
-    }
-  }
-});
 
 const setUp = (pet) => {
-  feedButton.on('press', () => {
+  screen.key(['C-f'], (ch, key) => {
     pet.receiveCommand(new Feed());
+  });
+  screen.key(['C-c'], (ch, key) => {
+    pet.receiveCommand(new CleanPoop());
   });
 }
 
