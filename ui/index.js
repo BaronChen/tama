@@ -3,6 +3,7 @@ const healthPointIndicator = require('./components/healthPointIndicator');
 const poopIndicator = require('./components/poopIndicator');
 const satietyIndicator = require('./components/satietyIndicator');
 const commandPanel = require('./components/commandPanel');
+const cuteFace = require('./components/cuteFace');
 
 const screen = require('./screen');
 
